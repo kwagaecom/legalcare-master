@@ -31,7 +31,7 @@
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
-	     <div class="collapse navbar-collapse" id="ftco-nav">
+	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
@@ -56,7 +56,7 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-    
+ 
     <div class="hero-wrap js-fullheight" style="background-image: url('images/joint.PNG');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -73,10 +73,155 @@
             <p class="mb-4">At A & B Law Ventures, our dedicated attorneys have helped thousands of individuals to gain relief in different cases. Our clients trust us to fight for their rights and provide the legal care they need</p>
             <p><a href="legaladvice.html" class="btn btn-primary mr-md-4 py-2 px-4">Get Legal Advice <span class="ion-ios-arrow-forward"></span></a></p>
           </div>
+
         </div>
+ 
       </div>
     </div>
+  <style>
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
+.popup-content {
+  background-color: #fefefe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: left; /* Align text to the left for legal disclaimer */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button.center-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.center-button:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+    <link rel="stylesheet" href="styles.css" />
+
+<button onclick="openPopup()" class="center-button">Disclaimer</button>
+
+<div id="disclaimerPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+   <div class="container">
+    <h1>Disclaimer</h1>
+    <p>This website is managed by A & B Law Ventures, located in Tis Hazari Court,New Delhi-110054, India.</p>
+
+    <p>
+        The information provided on this website is for general informational purposes only. It is not intended as legal advice, and you should not consider it as such. Viewing this website, or communicating with A & B Law Ventures Law Firm through this
+        website, does not create an attorney-client relationship.
+    </p>
+
+    <p>
+        While we strive to keep the information up to date and accurate, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to
+        the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+    </p>
+
+    <p>
+        Through this website, you may be able to link to other websites that are not under the control of A & B Law Ventures Law Firm. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not
+        necessarily imply a recommendation or endorsement of the views expressed within them.
+    </p>
+
+    <p>Any unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.</p>
+    <p>
+        While we make every effort to ensure the security and confidentiality of any information you submit through this website, we cannot guarantee absolute security. Please do not send any confidential or sensitive information through
+        this website.
+    </p>
+    <p>This disclaimer is subject to change without notice, and it is your responsibility to review it regularly. By continuing to use this website, you agree to be bound by the terms and conditions of this disclaimer.</p>
+    <p>If you have any questions or concerns about this disclaimer, please <a href="contact.html" target="_blank">Contact Us</a>:</p>
+</div>
+<div class="footer">
+    &copy; 2024 A & B Law Ventures Law Firm. All rights reserved.
+</div>
+
+    <div class="buttons">
+      <button onclick="agree()">Agree</button>
+      <button onclick="disagree()">Disagree</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Open the disclaimer popup with animation
+  function openPopup() {
+    var popup = document.getElementById("disclaimerPopup");
+    popup.style.display = "block";
+    popup.classList.add("popup-animation");
+  }
+
+  // Close the disclaimer popup
+  function closePopup() {
+    document.getElementById("disclaimerPopup").style.display = "none";
+  }
+
+  // Action when user agrees to the disclaimer
+  function agree() {
+    alert("By clicking 'Agree', you acknowledge that you have read and understood the disclaimer.");
+    // Add any specific action you want to take when the user agrees
+    closePopup(); // Close the popup after agreement
+  }
+
+  // Action when user disagrees with the disclaimer
+  function disagree() {
+    alert("By clicking 'Disagree', you will be redirected away from this site.");
+    // Add any specific action you want to take when the user disagrees
+    closePopup(); // Close the popup after disagreement
+  }
+</script>
     <section class="ftco-section ftco-no-pt">
     	<div class="container">
     		<div class="row">
@@ -586,6 +731,9 @@
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+               <li class="ftco-animate"><a href="https://www.youtube.com/watch?v=NfQ1DK9LJys"><span class="icon-youtube"></span></a></li>
+
+
               </ul>
             </div>
           </div>

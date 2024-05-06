@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer Popup</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Styles for the popup */
+  </style>
+</head>
+<body>
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h2>Disclaimer</h2>
+    <p>This website contains information intended for educational purposes only. By continuing to use this site, you agree to the terms and conditions outlined in our disclaimer.</p>
+    <div class="buttons">
+      <button onclick="agree()">Agree</button>
+      <button onclick="disagree()">Disagree</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  function agree() {
+    // Add your logic for when the user agrees to the disclaimer
+    alert('You have agreed to the disclaimer.');
+    closePopup(); // Close the popup after agreement
+  }
+
+  function disagree() {
+    // Add your logic for when the user disagrees with the disclaimer
+    alert('You have disagreed to the disclaimer.');
+    // Here you can handle what happens if the user disagrees, for example, redirecting them away from the site
+  }
+
+  // Automatically open the popup when the page loads
+  window.onload = function() {
+    openPopup();
+  };
+</script>
+
+</body>
+</html>

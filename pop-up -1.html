@@ -4,59 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Disclaimer Popup</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-<style>
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-}
 
-.popup-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.buttons {
-  text-align: center;
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-</style>
 <div class="popup" id="popup">
   <div class="popup-content">
     <span class="close" onclick="closePopup()">&times;</span>
@@ -69,30 +69,32 @@ button:hover {
   </div>
 </div>
 
-<script src="script.js">
-function openPopup() {
-  document.getElementById('popup').style.display = 'block';
-}
+<script>
+  function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
 
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
 
-function agree() {
-  // Add your logic for when the user agrees to the disclaimer
-  alert('You have agreed to the disclaimer.');
-}
+  function agree() {
+    // Add your logic for when the user agrees to the disclaimer
+    alert('You have agreed to the disclaimer.');
+    closePopup(); // Close the popup after agreement
+  }
 
-function disagree() {
-  // Add your logic for when the user disagrees with the disclaimer
-  alert('You have disagreed to the disclaimer.');
-}
+  function disagree() {
+    // Add your logic for when the user disagrees with the disclaimer
+    alert('You have disagreed to the disclaimer.');
+    // Here you can handle what happens if the user disagrees, for example, redirecting them away from the site
+  }
 
-window.onload = function() {
-  openPopup();
-}
-
-
+  // Automatically open the popup when the page loads
+  window.onload = function() {
+    openPopup();
+  };
 </script>
+
 </body>
 </html>

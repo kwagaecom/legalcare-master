@@ -87,126 +87,47 @@
 
 
 
-  <style>
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.popup-content {
-  background-color: #fefefe;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  text-align: left; /* Align text to the left for legal disclaimer */
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.buttons {
-  margin-top: 20px;
-}
-
-button.center-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button.center-button:hover {
-  background-color: #0056b3;
-}
-
-  </style>
-    <link rel="stylesheet" href="styles.css" />
-
-<button onclick="openPopup()" class="center-button">Disclaimer</button>
-
-<div id="disclaimerPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup()">&times;</span>
-   <div class="container">
-    <h1>Disclaimer</h1>
-    <p align="justify" >Bar Council of India does not permit advertisement or solicitation by advocates or firm of advocates in any form or manner. By accessing this website (www.ablawventures.com) you acknowledge and confirm that you are seeking information relating to A & B Law Ventures of your own accord and that there has been no form of solicitation, advertisement or inducement by A & B Law Ventures or its members. The content of this website is for informational purposes only and should not be interpreted as soliciting or advertisement. No material/information provided on this website should be construed as legal advice. A & B Law Ventures shall not be liable for consequences of any action taken by relying on the material/information provided on this website. The contents of this website are the intellectual property of A & B Law Ventures.</p>
-   
-</div>
-<!--<div class="footer">
-    &copy; 2024 A & B Law Ventures Law Firm. All rights reserved.
-</div>-->
-
-    <div class="buttons">
-      <button onclick="agree()">Agree</button>
-      <button onclick="disagree()">Disagree</button>
+<div id="disclaimerPopup" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Disclaimer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bar Council of India does not permit advertisement or solicitation by advocates or firm of advocates in any form or manner. By accessing this website (www.ablawventures.com) you acknowledge and confirm that you are seeking information relating to A & B Law Ventures of your own accord and that there has been no form of solicitation, advertisement or inducement by A & B Law Ventures or its members. The content of this website is for informational purposes only and should not be interpreted as soliciting or advertisement. No material/information provided on this website should be construed as legal advice. A & B Law Ventures shall not be liable for consequences of any action taken by relying on the material/information provided on this website. The contents of this website are the intellectual property of A & B Law Ventures.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="agree()">Agree</button>
+        <button type="button" class="btn btn-secondary" onclick="disagree()">Disagree</button>
+      </div>
     </div>
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-  // Open the disclaimer popup with animation
-  function openPopup() {
-    var popup = document.getElementById("disclaimerPopup");
-    popup.style.display = "block";
-    popup.classList.add("popup-animation");
-  }
-
-  // Close the disclaimer popup
-  function closePopup() {
-    document.getElementById("disclaimerPopup").style.display = "none";
-  }
+  // Automatically display the disclaimer popup when the page loads
+  $(document).ready(function(){
+    $('#disclaimerPopup').modal('show');
+  });
 
   // Action when user agrees to the disclaimer
   function agree() {
     alert("By clicking 'Agree', you acknowledge that you have read and understood the disclaimer.");
     // Add any specific action you want to take when the user agrees
-    closePopup(); // Close the popup after agreement
+    $('#disclaimerPopup').modal('hide'); // Hide the popup after agreement
   }
 
   // Action when user disagrees with the disclaimer
   function disagree() {
     alert("By clicking 'Disagree', you will be redirected away from this site.");
     // Add any specific action you want to take when the user disagrees
-    closePopup(); // Close the popup after disagreement
+    $('#disclaimerPopup').modal('hide'); // Hide the popup after disagreement
   }
 </script>
 <style>
@@ -233,7 +154,7 @@ button.center-button:hover {
       <div class="container">
         <div class="row">
           <div class="col-lg-5 pr-md-5 pr-sm-0">
-            <h2 class="mt-0 heading-border-top mb-3 font-weight-normal"align="center">Who We Are </h2>
+            <h2 class="mt-0 heading-border-top mb-3 font-weight-normal"align="center">Who  Are We</h2>
             <p align="justify">We are a dedicated team of legal advocates committed to providing exceptional services in the realm of law. With a focus on integrity, diligence, and expertise, we strive to uphold justice and advocate for our clients' rights.</p>
             <p>Our firm stands as a beacon of trust and reliability, offering personalized solutions tailored to meet the diverse needs of our clientele</p>
             
@@ -434,8 +355,7 @@ button.center-button:hover {
     	</div>
     </section>--->
 
-
-  <section class="ftco-section ftco-no-pt">
+    <section class="ftco-section ftco-no-pt">
     	<div class="container-fluid px-md-5">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -496,7 +416,7 @@ button.center-button:hover {
         	<div class="col-lg-3 col-sm-6">
         		<div class="block-2 ftco-animate">
 	            <div class="flipper">
-	              <div class="front" style="background-image: url(/images/person_5 .png);">
+	              <div class="front" style="background-image: url(/images/person_5 .jpg);">
 	                <div class="box">
 	                  <h2>Advocate Kaushmika Priya</h2>
 	                </div>
@@ -504,11 +424,11 @@ button.center-button:hover {
 	              <div class="back">
 	                <!-- back content -->
 	                <blockquote>
-	                  <p>&ldquo;Ms. Kaushmika Priya has completed her studies from top notch college of India with specialization in constitutional and environmental law. After completing her studies, she has been working in criminal and IPR matters.  She has been involved in the work of philanthropy and providing legal services across the country.&rdquo;</p>
+	                  <p>&ldquo;Ms. Kaushmika Priya has completed her studies from top notch college of India with specialization in constitutional and environmental law. After completing her studies, she has been working in criminal and IPR matters. She is a founder of NGO namely "Kal ki soch#. She has been involved in the work of philanthropy and providing legal services across the country.&rdquo;</p>
 	                </blockquote>
 	                <div class="author d-flex">
 	                  <div class="image align-self-center">
-	                    <img src="images/person_5 .png" alt="">
+	                    <img src="images/person_5 .jpg" alt="">
 	                  </div>
 	                  <div class="name align-self-center ml-3">Advocate Kaushmika Priya</div>
 	                </div>
@@ -767,7 +687,8 @@ button.center-button:hover {
         </div>
       </div>
     </section>-->
- <footer class="ftco-footer ftco-bg-dark ftco-section">
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
@@ -781,7 +702,7 @@ button.center-button:hover {
                 <li class="ftco-animate"><a href="https://twitter.com/ablaw_ventures"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=61559035323192&sk=about"><span class="icon-facebook"></span></a></li>
                 <li class="ftco-animate"><a href="https://www.instagram.com/ablawventures/"><span class="icon-instagram"></span></a></li>
-             <li class="ftco-animate"><a href="https://www.linkedin.com/company/102055150/admin/feed/posts/"><span class="icon-linkedin" style="color: #0077B5;"></span></a></li>
+             <li class="ftco-animate"><a href="https://www.linkedin.com/in/anjani-kumar-thakur-0a82a810b/"><span class="icon-linkedin" style="color: #0077B5;"></span></a></li>
 
 
               </ul>
@@ -791,18 +712,14 @@ button.center-button:hover {
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Practice Areas</h2>
               <ul class="list-unstyled">
-                <li><a href="practice-Intellectual.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Intellectual Law</a></li>
-                <li><a href="practice-fanily.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Family Law</a></li>
-                <li><a href="practice-business.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Business Law</a></li>
-                <li><a href="practice-criminal.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Criminal Law</a></li>
-                <li><a href="practice-employment.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Employment Law</a></li>
-		<li><a href="practice-corporate.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Commercial Law</a></li>
-                <li><a href="practice-realestate.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Real Estate Law</a></li>
-                <li><a href="practice-insolvency.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Insolvancy Law</a></li>
-                <li><a href="practice-cyber.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Cyber Law</a></li>
-                <li><a href="practice-financial.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Financial Law</a></li>
-                <li><a href="practice-consumer.html" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Consumer Law</a></li>
-		
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Family Law</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Business Law</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Insurance Law</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Criminal Law</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Drug Offenses</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Fire Accident</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Employment Law</a></li>
+                <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Property Law</a></li>
 
               </ul>
             </div>
@@ -813,8 +730,6 @@ button.center-button:hover {
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">132/5, C.R Road, Laxmi Nagar, New Delhi-110092</span></li>
-		         <li><span class="icon icon-map-marker"></span><span class="text">171/3 Sumitra abason,Swami Vivekananda Road, Barasat,Kolkata - 700124</span></li>
-		        <li><span class="icon icon-map-marker"></span><span class="text">F-403, Bren Woods Apartment, Rayasandra, Electronic City Phase II, Bengaluru -560100, Karnataka</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 786 1956 789</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@ablawventures.com</span></a></li>
 	              </ul>

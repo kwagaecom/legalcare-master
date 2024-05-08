@@ -87,25 +87,19 @@
 
 
 
-<div id="disclaimerPopup" class="modal" tabindex="-1" role="dialog">
+<!-- Disclaimer Popup -->
+<div id="disclaimerPopup" class="modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" align="center">Disclaimer</h5>
-       <!---- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>---->
       </div>
       <div class="modal-body">
-        <p align="justify">Bar Council of India does not permit advertisement or solicitation by advocates or firm of advocates in any form or manner</p>.
- <p align="justify">By accessing website <a href="https://ablawventures.com/">www.ablawventures.com</a> you acknowledge and confirm that you are seeking information relating to A & B Law Ventures of your own accord and that there has been no form of solicitation, advertisement or inducement by A & B Law Ventures or its members</p>
-<p align="justify">The content of this website is for informational purposes only and should not be interpreted as soliciting or advertisement. No material/information provided on this website should be construed as legal advice. </p> 
-<p align="justify">A & B Law Ventures shall not be liable for consequences of any action taken by relying on the material/information provided on this website. The contents of this website are the intellectual property of A & B Law Ventures</p>.
-
+        <p>Bar Council of India does not permit advertisement or solicitation by advocates or firm of advocates in any form or manner. By accessing this website (www.ablawventures.com) you acknowledge and confirm that you are seeking information relating to A & B Law Ventures of your own accord and that there has been no form of solicitation, advertisement or inducement by A & B Law Ventures or its members. The content of this website is for informational purposes only and should not be interpreted as soliciting or advertisement. No material/information provided on this website should be construed as legal advice. A & B Law Ventures shall not be liable for consequences of any action taken by relying on the material/information provided on this website. The contents of this website are the intellectual property of A & B Law Ventures.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="agree()">Agree</button>
-        <button type="button" class="btn btn-secondary" onclick="disagree()">Disagree</button>
+        <button type="button" class="btn btn-primary" onclick="agree()">I Agree</button>
+        <!-- <button type="button" class="btn btn-secondary" onclick="disagree()">Disagree</button>-->
       </div>
     </div>
   </div>
@@ -134,6 +128,7 @@
     $('#disclaimerPopup').modal('hide'); // Hide the popup after disagreement
   }
 </script>
+
 <style>
 #section-about {
     overflow: hidden;

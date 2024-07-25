@@ -102,201 +102,134 @@
           
           
         </div>
- 	<section>
-<style>
-.hidden {
-    display: none;
-}
-</style>
-<button onclick="toggleForm('contactForm')">Contact Us</button>
-<button onclick="toggleForm('appointmentForm')"> Get Appointment </button>
-
-   <div class="row block-8 no-gutters">
-          <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-                           <!--- <h2 class="display-8 mb-2"align="center">Contact Us</h2>--->
-                            <style>
-form {
-    border: 2px solid #e0e0e0; /* Set border color and width */
-    border-radius: 10px; /* Add border radius for rounded corners */
-    padding: 20px; /* Add some padding inside the form */
-}
-
-
-</style>
-                            <form id="contactForm">
-
-                                <div class="row g-3">
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" name="Name" id="name" placeholder="Your Name">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control" name="Email"id="email" placeholder="Your Email">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="phone" class="form-control" name="Phone" id="phone" placeholder="Phone">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" name="Address" id="address" placeholder="Address">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" name="Subject" id="subject" placeholder="Subject">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" name="Message" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-<script>
-    // JavaScript to handle form submission
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = new FormData(event.target);
-        const email = 'ablawventures@gmail.com'; // Your Gmail address
-        const subject = 'Contact Form Submission'; // Subject for the email
-
-        let message = "Form Submission Details:\n\n";
-
-        // Iterate over form data and append to message
-        for (const [key, value] of formData.entries()) {
-            message += `${key}: ${value}\n`;
+ <style>
+        .hidden {
+            display: none;
         }
+        form {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background for the forms */
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-wrapper {
+            flex: 1;
+            margin: 0 10px;
+        }
+        button {
+            margin-bottom: 20px;
+        }
+        section {
+            background-image: url('https://images.unsplash.com/photo-1528747045269-390fe33c19f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvbnRhY3QlMjB1cyUyMGFuZCUyMGFwcG9pbnRlbWVudHxlbnwwfHwwfHx8MA%3D%3D'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
 
-        // Create a "mailto" URL with the pre-filled email subject and body
-        const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+<section>
+    <button onclick="toggleForm('contactForm')">Contact Us</button>
+    <button onclick="toggleForm('appointmentForm')">Get Appointment</button>
 
-        // Open the default email client with the pre-filled email
-        window.location.href = mailtoURL;
+    <div class="form-container">
+        <div class="form-wrapper">
+            <form id="contactForm" class="hidden">
+                <div class="row g-3">
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="Name" id="name" placeholder="Your Name">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" name="Email" id="email" placeholder="Your Email">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="phone" class="form-control" name="Phone" id="phone" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="Address" id="address" placeholder="Address">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="Subject" id="subject" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" name="Message" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-3">Send Message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-        // You can also display a success message or redirect the user to a thank-you page
-    });
-</script>
-          <br>    
-         
-        </div>
-      </div>
-<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row d-md-flex justify-content-end">
-    			<div class="col-md-6 half p-3 py-5 pl-md-5 ftco-animate heading-section heading-section-white">
-    				<span class="subheading"align="center">Get Appointment</span>
-    				<!----<h2 class="mb-4">Free Consultation</h2>---->
-                            <style>
-form {
-    border: 2px solid #e0e0e0; /* Set border color and width */
-    border-radius: 10px; /* Add border radius for rounded corners */
-    padding: 20px; /* Add some padding inside the form */
-}
-
-
-</style>
-    				<form id="appointmentForm">
-
-    <div class="row g-3">
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="text" class="form-control" name="Name" id="name" placeholder="Your Name">
-              
-            </div>
-        </div>
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="email" class="form-control" name="Email" id="email" placeholder="Your Email">
-                
-            </div>
-        </div>
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="phone" class="form-control" name="Phone" id="phone" placeholder="Phone">
-               
-            </div>
-        </div>
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="text" class="form-control" name="Address" id="address" placeholder="Address">
-                
-            </div>
-        </div>
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="date" class="form-control" name="Date" id="date">
-               
-            </div>
-        </div>
-        <div class="col-lg-12 col-xl-6">
-            <div class="form-floating">
-                <input type="time" class="form-control" name="Time" id="time">
-                
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-floating">
-                <input type="text" class="form-control" name="Subject" id="subject" placeholder="Subject">
-                
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-floating">
-                <textarea class="form-control" name="Message" id="message" placeholder="Leave a message here" style="height: 160px"></textarea>
-                <label for="message">Message</label>
-            </div>
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary w-100 py-3">Send Appointment Request</button>
+        <div class="form-wrapper">
+            <form id="appointmentForm" class="hidden">
+                <div class="row g-3">
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="Name" id="name" placeholder="Your Name">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" name="Email" id="email" placeholder="Your Email">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="phone" class="form-control" name="Phone" id="phone" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="Address" id="address" placeholder="Address">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" name="Date" id="date">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <div class="form-floating">
+                            <input type="time" class="form-control" name="Time" id="time">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="Subject" id="subject" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" name="Message" id="message" placeholder="Leave a message here" style="height: 160px"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-3">Send Appointment Request</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</form>
+</section>
 
-    			</div>
-<script>
-    // JavaScript to handle form submission
-    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = new FormData(event.target);
-        const email = 'ablawventures@gmail.com'; // Your Gmail address
-        const subject = 'Contact Form Submission'; // Subject for the email
-
-        let message = "Form Submission Details:\n\n";
-
-        // Iterate over form data and append to message
-        for (const [key, value] of formData.entries()) {
-            message += `${key}: ${value}\n`;
-        }
-
-        // Create a "mailto" URL with the pre-filled email subject and body
-        const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-
-        // Open the default email client with the pre-filled email
-        window.location.href = mailtoURL;
-
-        // You can also display a success message or redirect the user to a thank-you page
-    });
-</script>
-    		</div>
-    	</div>
 <script>
     function toggleForm(formId) {
         var forms = document.getElementsByTagName("form");
@@ -308,15 +241,30 @@ form {
             }
         }
     }
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        submitForm(event, 'Contact Form Submission');
+    });
+
+    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        submitForm(event, 'Appointment Form Submission');
+    });
+
+    function submitForm(event, subject) {
+        const formData = new FormData(event.target);
+        const email = 'ablawventures@gmail.com';
+
+        let message = "Form Submission Details:\n\n";
+        for (const [key, value] of formData.entries()) {
+            message += `${key}: ${value}\n`;
+        }
+
+        const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+        window.location.href = mailtoURL;
+    }
 </script>
-
-
-
-
-
-
-    </section>
-
 
 
 
